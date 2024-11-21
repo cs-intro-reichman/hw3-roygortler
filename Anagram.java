@@ -67,7 +67,7 @@ public class Anagram {
 		else
 			str2="";
 		str2=str2.replaceAll("[^a-zA-Z]", "");
-		System.out.println(str1+str2);
+		
 		return str1+str2;
 	
 		
