@@ -28,22 +28,59 @@ public class Anagram {
 
 	// Returns true if the two given strings are anagrams, false otherwise.
 	public static boolean isAnagram(String str1, String str2) {
-		// Replace the following statement with your code
-		return false;
+		str1=preProcess(str1);
+		str2=preProcess(str2);
+		
+		if(str1.length()!=str2.length())
+			return false;
+		for(int i=0;i<str1.length();i++){int c=0;
+			for(int j=0;j<str2.length();j++){
+				if(str1.charAt(i)==str2.charAt(j))
+				{c++;break;}
+			}
+			if(c==0){
+				return false;
+			}
+		}
+		return true;
 	}
 	   
 	// Returns a preprocessed version of the given string: all the letter characters are converted
 	// to lower-case, and all the other characters are deleted, except for spaces, which are left
 	// as is. For example, the string "What? No way!" becomes "whatnoway"
 	public static String preProcess(String str) {
-		// Replace the following statement with your code
-		return "";
+		str=str.replaceAll("[^a-zA-Z]", "");
+		str=str.toLowerCase();
+		
+		
+	
+		return str;
 	} 
 	   
 	// Returns a random anagram of the given string. The random anagram consists of the same
 	// characters as the given string, re-arranged in a random order. 
 	public static String randomAnagram(String str) {
-		// Replace the following statement with your code
-		return "";
+		int c=1;
+		String str1=str;
+		String str2="";
+		while(c<str.length()){
+			if(str1.isEmpty())
+			break;
+			
+			int l=(int)(Math.random() * (str.length()-c)) ;
+			str2=str2+str1.charAt(l);
+			 str1=str1.replace(String.valueOf(str2.charAt((str2.length()-1))), "");
+			 
+			c++;
+			
+			
+		}for (int i=0;i<str.length();i++){
+			for(int j=0;j<str.length();j++){
+				if(str.charAt(j)==str.charAt(i)&&j!=i){
+					return str2+str.charAt(j);
+				}
+			}
+		}
+		return str2+str1;
 	}
 }

@@ -28,31 +28,48 @@ public class Algebra {
 		public static int plus(int x1, int x2) {
 				int y = x2;
 				int x=x1;
-			
+			if(y>0){
 			while(y>0){
 				y--;
 				x++;
 			}return x;}
+			else
+			{while(y<0){
+				y++;
+				x--;
+			}return x;}
+		}
+			
 
 	// Returns x1 - x2
 	public static int minus(int x1, int x2) {
 		int c=0;int x=x1;
-		while (c<x2) {
+		if(x2>0)
+		{while (c<x2) {
 			x--;
 			c++;
 			
-		}return x;
-	}
+		}return x;}
+	else
+	{while (c>x2) {
+		x++;
+		c--; }return x;}}
+		
+	
 
 	// Returns x1 * x2
 	public static int times(int x1, int x2) {
 		int x=0;
-		
+		int x3=Math.abs(x1);
+		int x4=Math.abs(x2);
 		int c=0;
-		while(c<x2)
-		{x=plus(x,x1);
+		
+		{while(c<x4)
+		{x=plus(x,x3);
 			c++;
-		}return x;
+		}if(x1>0&&x2>0||x1<0&&x2<0)
+			return x;}
+		return -x;
 	}
 
 	// Returns x^n (for n >= 0)
@@ -65,11 +82,13 @@ public class Algebra {
 
 	// Returns the integer part of x1 / x2 
 	public static int div(int x1, int x2) {
-		int x=x1;int y=x2;
+		int x=Math.abs(x1);int y=Math.abs(x2);
 		int c=0;
 		while(minus(x, y)>=0){x=minus(x, y);
 			c++;
-		}return c;
+		}if(x1>0&&x2>0||x1<0&&x2<0)
+		return c;
+		return-c;
 	}
 
 	// Returns x1 % x2
