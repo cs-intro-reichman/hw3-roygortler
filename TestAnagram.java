@@ -74,7 +74,9 @@ public class TestAnagram {
         // Test case 1: Check if result is an anagram
         String original = "hello";
         String randomized = Anagram.randomAnagram(original);
+        
         boolean test1 = Anagram.isAnagram(original, randomized);
+        
         System.out.println("Test 1 (is anagram): " + (test1 ? "PASS" : "FAIL"));
         
         // Test case 2: Check if same length
@@ -92,7 +94,7 @@ public class TestAnagram {
             }
         }
         System.out.println("Test 3 (randomness): " + (foundDifferent ? "PASS" : "FAIL"));
-
+        
         int passed = (test1 ? 1 : 0) + (test2 ? 1 : 0) + (foundDifferent ? 1 : 0);
         passedTests += passed;
         return passed;
